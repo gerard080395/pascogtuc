@@ -1,0 +1,124 @@
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top m-b-0">
+        <div class="navbar-header">
+            <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse">
+                <i class="ti-menu"></i>
+            </a>
+            <div class="top-left-part">
+                <a class="logo" href="/">
+                    <b><!--This is dark logo icon--><img src="../plugins/images/eliteadmin-logo.png" alt="home" class="dark-logo" />
+                        <!--This is light logo icon--><img src="../plugins/images/eliteadmin-logo-dark.png" alt="home" class="light-logo" /></b>
+                    <span class="hidden-xs">
+                    <!--This is dark logo text--><img src="../plugins/images/eliteadmin-logo-darkshop.jpg" alt="home" class="dark-logo" />
+                        <!--This is light logo text--><img src="../plugins/images/eliteadmin-logo-darkshop.jpg" alt="home" class="light-logo" />
+                </span>
+                </a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-left hidden-xs">
+                <li>
+                    <a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light">
+                        <i class="icon-arrow-left-circle ti-menu"></i>
+                    </a>
+                </li>
+                <li>
+                    <form role="search" class="app-search hidden-xs">
+                        <input type="text" placeholder="Search..." class="form-control">
+                        <a href=""><i class="fa fa-search"></i></a>
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-top-links navbar-right pull-right">
+                {{#if login}}
+                <li class="dropdown">
+                    <a class="waves-effect waves-light" href="/user/signup">
+                    <i class="fa fa-user">Sign up </i>
+                    <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+                    </a>
+                </li>
+                {{/if}}
+
+                <!-- .Megamenu -->
+                <li class="mega-dropdown">
+                    <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><span class="hidden-xs">Menu</span> <i class="icon-options-vertical"></i></a>
+                    <ul class="dropdown-menu mega-dropdown-menu animated bounceInDown">
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">Student Account</li>
+                                {{#if login}}
+                                     <li><a href="/user/logout">Logout</a></li>
+                                     <li><a href="/user/changePassword">Change Password</a></li>
+                                {{else}}
+                                    <li><a href="/user/signup">Create An Account</a></li>
+                                    <li><a href="/user/signin">Login</a></li>
+                                {{/if}}
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">Contact</li>
+                                <li><a href="/user/contact">Contact us</a></li>
+                                <li><a href="/insert">Share A New Exam Question Paper</a></li>
+                                <li><a href="/donation">Donate to Support Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- /.Megamenu -->
+                <!--<li class="right-side-toggle"> <a class="waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li>-->
+                <!-- /.dropdown -->
+            </ul>
+        </div>
+        <!-- /.navbar-header -->
+        <!-- /.navbar-top-links -->
+        <!-- /.navbar-static-side -->
+    </nav>
+    <!-- Left navbar-header -->
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search hidden-sm hidden-md hidden-lg">
+                    <!-- input-group -->
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Search a specific paper...">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
+                        </span> </div>
+                    <!-- /input-group -->
+                </li>
+                <li class="nav-small-cap m-t-10 ">--- Main Menu---</li>
+                <li><a href="inbox.html" class="waves-effect"> <span class="hide-menu">Exam Past Questions <span class="fa arrow"></span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="javascript:void(0)" class="waves-effect">Informatics<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li> <a href="/informatics/100">LEVEL 100</a></li>
+                                <li> <a href="/informatics/200">LEVEL 200</a></li>
+                                <li> <a href="/informatics/300">LEVEL 300</a></li>
+                                <li> <a href="/informatics/400">LEVEL 400</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0)" class="waves-effect">Telecom<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li> <a href="/telecom/100">LEVEL 100</a></li>
+                                <li> <a href="/telecom/200">LEVEL 200</a></li>
+                                <li> <a href="/telecom/300">LEVEL 300</a></li>
+                                <li> <a href="/telecom/400">LEVEL 400</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0)" class="waves-effect">Business<span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li> <a href="/business/100">LEVEL 100</a></li>
+                                <li> <a href="/business/200">LEVEL 200</a></li>
+                                <li> <a href="/business/300">LEVEL 300</a></li>
+                                <li> <a href="/business/400">LEVEL 400</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="/insert" class="waves-effect"> <span class="hide-menu">Share A Paper</span></a></li>
+                <li><a href="/user/donate" class="waves-effect"> <span class="hide-menu">Donate To Support</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Left navbar-header end -->

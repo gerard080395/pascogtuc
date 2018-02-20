@@ -1,0 +1,175 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">User History</h4>
+            </div>
+
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <ol class="breadcrumb">
+                    <li>Purchase History</li>
+                    <li class="active">Print Receipt</li>
+                </ol>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        {{#if order}}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="white-box printableArea">
+                        <h3><b>INVOICE</b> <span class="pull-right">#{{order._id}}</span></h3>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="pull-left">
+                                    <address>
+                                        <h3> &nbsp;<b class="text-danger">GH-SHOP</b></h3>
+                                        <p class="text-muted m-l-5">Abeka Shopping Center,
+                                            <br/> Abeka Junction,
+                                            <br/> Accra-Ghana,
+                                            <br/> PMB - 200</p>
+                                    </address>
+                                </div>
+                                <div class="pull-right text-right">
+                                    <address>
+                                        <h3>To,</h3>
+                                        <h4 class="font-bold">{{order.name}},</h4>
+                                        <p class="text-muted m-l-30">{{order.address}}
+                                            <!--<br/> Nr' Viswakarma Temple,
+                                            <br/> Talaja Road,
+                                            <br/> Bhavnagar - 364002--></p>
+                                        <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> {{order.time}}</p>
+                                        <p><b>Due Date :</b> <i class="fa fa-calendar"></i> 25th Jan 2017</p>
+                                    </address>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="table-responsive m-t-40" style="clear: both;">>
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-center">#</th>
+                                            <th>Description</th>
+                                            <th class="text-right">Quantity</th>
+                                            <th class="text-right">Unit Cost</th>
+                                            <th class="text-right">Total</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {{# each order.cart.items}}
+                                            <tr>
+                                                <td class="text-center">1</td>
+                                                <td>{{this.item.productTitle}}</td>
+                                                <td class="text-right">{{this.qty}} </td>
+                                                <td class="text-right"> &#8373;{{this.item.productPrice}} </td>
+                                                <td class="text-right"> &#8373;{{this.productPrice}} </td>
+                                            </tr>
+                                        {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="pull-right m-t-30 text-right">
+                                    <p>Sub - Total amount: &#8373; {{order.cart.totalPrice}}</p>
+                                    <!--<p>vat (10%) : &#8373; 138 </p>-->
+                                    <hr>
+                                    <h3><b>Total :</b> &#8373; {{order.cart.totalPrice}}</h3>
+                                </div>
+                                <div class="clearfix"></div>
+                                <hr>
+                                <div class="text-right">
+                                    <!-- <button class="btn btn-danger" type="submit"> Proceed to payment </button>-->
+                                    <button id="print" class="btn btn-danger btn-outline" type="button"> <span><i class="fa fa-print"></i> Print</span> </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .row -->
+            {{else}}
+            <h1>No order has been placed</h1>
+         {{/if}}
+        <!-- /.row -->
+        <!-- .right-sidebar -->
+        <div class="right-sidebar">
+            <div class="slimscrollright">
+                <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+                <div class="r-panel-body">
+                    <ul>
+                        <li><b>Layout Options</b></li>
+                        <li>
+                            <div class="checkbox checkbox-info">
+                                <input id="checkbox1" type="checkbox" class="fxhdr">
+                                <label for="checkbox1"> Fix Header </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="checkbox checkbox-warning">
+                                <input id="checkbox2" type="checkbox" checked="" class="fxsdr">
+                                <label for="checkbox2"> Fix Sidebar </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="checkbox checkbox-success">
+                                <input id="checkbox4" type="checkbox" class="open-close">
+                                <label for="checkbox4"> Toggle Sidebar </label>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="themecolors" class="m-t-20">
+                        <li><b>With Light sidebar</b></li>
+                        <li><a href="javascript:void(0)" theme="default" class="default-theme working">1</a></li>
+                        <li><a href="javascript:void(0)" theme="green" class="green-theme">2</a></li>
+                        <li><a href="javascript:void(0)" theme="gray" class="yellow-theme">3</a></li>
+                        <li><a href="javascript:void(0)" theme="blue" class="blue-theme">4</a></li>
+                        <li><a href="javascript:void(0)" theme="purple" class="purple-theme">5</a></li>
+                        <li><a href="javascript:void(0)" theme="megna" class="megna-theme">6</a></li>
+                        <li><b>With Dark sidebar</b></li>
+                        <br/>
+                        <li><a href="javascript:void(0)" theme="default-dark" class="default-dark-theme">7</a></li>
+                        <li><a href="javascript:void(0)" theme="green-dark" class="green-dark-theme">8</a></li>
+                        <li><a href="javascript:void(0)" theme="gray-dark" class="yellow-dark-theme">9</a></li>
+                        <li><a href="javascript:void(0)" theme="blue-dark" class="blue-dark-theme">10</a></li>
+                        <li><a href="javascript:void(0)" theme="purple-dark" class="purple-dark-theme">11</a></li>
+                        <li><a href="javascript:void(0)" theme="megna-dark" class="megna-dark-theme">12</a></li>
+                    </ul>
+                    <ul class="m-t-20 chatonline">
+                        <li><b>Chat option</b></li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="../plugins/images/users/varun.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="../plugins/images/users/genu.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="../plugins/images/users/ritesh.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="../plugins/images/users/arijit.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="../plugins/images/users/govinda.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="../plugins/images/users/hritik.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="../plugins/images/users/john.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><img src="../plugins/images/users/pawandeep.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /.right-sidebar -->
+    </div>
+    <!-- /.container-fluid -->
+   {{>footer}}
+</div>
+<!-- /#page-wrapper -->

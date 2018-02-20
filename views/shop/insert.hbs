@@ -1,0 +1,161 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">UPLOAD A NEW PAPER</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li class="active">Create A Submission</li>
+                </ol>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!--.row-->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="white-box">
+                    <h3 class="box-title m-b-0">Paper Upload Form</h3>
+                    <p class="text-muted m-b-30 font-13"> Upload A New Paper </p>
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <form method="post" enctype="multipart/form-data" action="/insert">
+                                {{#if hasErrors}}
+                                    <div class="alert alert-danger">
+                                        {{#each messages}}
+                                            <p>{{this}}</p>
+                                        {{/each}}
+                                    </div>
+                                {{/if}}
+                                {{#if message}}
+                                    <div class="alert alert-danger">
+                                        <p>{{message}}</p>
+                                    </div>
+                                {{/if}}
+                               <!-- <div class="form-group">
+                                    <label for="exampleInputuname"> paperPdfPath</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-package"></i></div>
+                                        <input type="text" class="form-control" id="exampleInputuname" placeholder="paperPdfPath" name="paperPdfPath" required>
+                                    </div>
+                                </div>-->
+                                <div class="form-group">
+                                    <label class="col-sm-12">Faculty Name</label>
+                                    <div class="col-sm-12">
+                                        <select class="custom-select col-12" id="inlineFormCustomSelect" name="paperFacultyName" required>
+                                            <option selected>Choose...</option>
+                                            <option value="Informatics">Informatics</option>
+                                            <option value="Telecom">Telecom</option>
+                                            <option value="Business">Business</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12">Level</label>
+                                    <div class="col-sm-12">
+                                        <select class="custom-select col-12" id="inlineFormCustomSelect" name="paperLevel" required>
+                                            <option selected>Choose...</option>
+                                            <option value="100">100</option>
+                                            <option value="200">200</option>
+                                            <option value="300">300</option>
+                                            <option value="400">400</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12">Mid Sem</label>
+                                    <div class="col-sm-12">
+                                        <select class="custom-select col-12" id="inlineFormCustomSelect" name="paperMidSem" required>
+                                            <option selected>Choose...</option>
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12">End Sem</label>
+                                    <div class="col-sm-12">
+                                        <select class="custom-select col-12" id="inlineFormCustomSelect" name="paperEndSem" required>
+                                            <option selected>Choose...</option>
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-12">Resit</label>
+                                    <div class="col-sm-12">
+                                        <select class="custom-select col-12" id="inlineFormCustomSelect" name="paperResit" required>
+                                            <option selected>Choose...</option>
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputuname">Examiner's Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-package"></i></div>
+                                        <input type="text" class="form-control" id="exampleInputuname" placeholder="paperLecturerName" name="paperLecturerName" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputuname"> Course Code</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-package"></i></div>
+                                        <input type="text" class="form-control" id="exampleInputuname" placeholder="paperCourseCode" name="paperCourseCode" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputuname"> Course Title</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-package"></i></div>
+                                        <input type="text" class="form-control" id="exampleInputuname" placeholder="paperCourseTitle" name="paperCourseTitle" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputuname"> Year</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-calendar"></i></div>
+                                        <input type="text" class="form-control" id="exampleInputuname" placeholder="paperYear" name="paperYear" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputuname"> Month</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-package"></i></div>
+                                        <input type="text" class="form-control" id="exampleInputuname" placeholder="paperMonth" name="paperMonth" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputuname"> paperDescription</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-package"></i></div>
+                                        <input type="text" class="form-control" id="exampleInputuname" placeholder="paperDescription" name="paperDescription" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label for="productImage">Product Image</label>
+                                        <input type="file" id="productImage" name="picture" multiple>
+                                        <!--<p class="help-block">Example block-level help text here.</p>-->
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                                <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--./row-->
+    </div>
+    <!-- /.container-fluid -->
+    {{>footer}}
+</div>
+

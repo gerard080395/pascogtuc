@@ -1,0 +1,57 @@
+<!-- Page Content -->
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Student Signin</h4>
+            </div>
+
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <ol class="breadcrumb">
+                    <li>Account</li>
+                    <li class="active">Sign In</li>
+                </ol>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="white-box">
+                    <h3 class="box-title m-b-0"> Account Sign In</h3>
+                    <p class="text-muted m-b-30 font-13">Log into your account </p>
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            {{#if hasErrors}}
+                                <div class="alert alert-danger">
+                                    {{#each messages}}
+                                        <p>{{this}}</p>
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+                            <form action="/user/signin" method="post">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+                                </div>
+
+                                <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+
+                                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                                <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+
+                            </form>
+
+                            <p>Don't have an account ?  <a href="/user/signup">Sign up instead</a></p>
+                            <p><a href="/user/auth/facebook" target="_blank">Login With facebook </a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
